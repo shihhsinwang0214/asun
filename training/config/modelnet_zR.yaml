@@ -1,0 +1,27 @@
+hydra:
+  job:
+    chdir: False
+  run:
+    dir: /root/workspace/out/planetoid/hydra/
+setup:
+  seed: 0
+  device: cuda
+  sweep: False
+  train: True
+  wandb_dir: /root/workspace/out/planetoid/
+load:
+  data_path: /root/workspace/data/modelnet/
+  train_data: train_z
+  test_data: test_R
+  batch_size: 128
+  load_checkpoint: False
+  checkpoint_path: /root/workspace/out/
+  split: public
+train:
+  epochs: 5
+  patience: 10
+  lr : .01
+  wd : 5e-4
+model:
+  hidden_channels: 16
+  dropout : .5
